@@ -1,32 +1,38 @@
-// import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox";
+require("@nomicfoundation/hardhat-toolbox");
+
+/** @type import('hardhat/config').HardhatUserConfig */
+
+const URL = "https://eth-sepolia.g.alchemy.com/v2/XpWuAVYcHj7J0KOpMrd-c8Zr1Tdd0YJ5"
+
+const KEY = "8b2e54997c83fe1a298fc5b2978448a6f2b4b03ef30942279af3333e137b421c"
+
+module.exports = {
+  solidity: "0.8.19",
+  networks: {
+    sepolia : {
+      url: URL,
+      accounts: [`0x${KEY}`],
+    },
+  },
+};
+
+
+/*
+
 require("dotenv").config({ path: ".env" });
 
-const ALCHEMY_MAINNET_API_KEY_URL = process.env.ALCHEMY_MAINNET_API_KEY_URL;
-
 const ALCHEMY_SEPOLIA_API_KEY_URL = process.env.ALCHEMY_SEPOLIA_API_KEY_URL;
-
-const ALCHEMY_MUMBAI_API_KEY_URL = process.env.ALCHEMY_MUMBAI_API_KEY_URL;
-
 const ACCOUNT_PRIVATE_KEY = process.env.ACCOUNT_PRIVATE_KEY;
 
 module.exports = {
-  solidity: "0.8.24",
+  solidity: "0.8.9",
   networks: {
-    hardhat: {
-      forking: {
-        url: ALCHEMY_MAINNET_API_KEY_URL,
-      }
-    },
     sepolia: {
       url: ALCHEMY_SEPOLIA_API_KEY_URL,
-      accounts: [ACCOUNT_PRIVATE_KEY],
-    },
-    mumbai: {
-      url: ALCHEMY_MUMBAI_API_KEY_URL,
       accounts: [ACCOUNT_PRIVATE_KEY],
     }
   },
   lockGasLimit: 200000000000,
   gasPrice: 10000000000,
 };
+*/
